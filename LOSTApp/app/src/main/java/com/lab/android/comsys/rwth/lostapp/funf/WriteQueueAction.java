@@ -110,7 +110,8 @@ public class WriteQueueAction extends Action implements Probe.DataListener {
      * Last received location is taken here, no accumulation needed so far
      */
     private void extractLastLocation() {
-        contextFeatures.setLocation(locations.get(locations.size() - 1));
+        if(locations.size()>0)
+            contextFeatures.setLocation(locations.get(locations.size() - 1));
         locations.clear();
     }
 

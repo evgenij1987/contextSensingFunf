@@ -30,7 +30,7 @@
               },
               {   "@type": "edu.mit.media.funf.probe.builtin.SimpleLocationProbe",
                    "@schedule": {
-                      "interval": 600,
+                      "interval": 1800,
                       "duration":60,
                        "offset": 0,
                         "strict":true
@@ -41,7 +41,7 @@
               },
               {   "@type": "com.lab.android.comsys.rwth.lostapp.funf.WeatherProbe",
                     "@schedule": {
-                      "interval": 600,
+                      "interval": 1800,
                        "duration":60,
                        "offset": 0,
                        "strict":true

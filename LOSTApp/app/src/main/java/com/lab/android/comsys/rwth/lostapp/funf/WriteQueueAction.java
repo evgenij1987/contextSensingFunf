@@ -229,7 +229,7 @@ public class WriteQueueAction extends Action implements Probe.DataListener {
 
             linAccFeatures[0] = accumulateMotionFeatures(xLinearAcc, "xLinearAcc");
             linAccFeatures[1] = accumulateMotionFeatures(yLinearAcc, "yLinearAcc");
-            linAccFeatures[2] = accumulateMotionFeatures(zLinearAcc, "yLinearAcc");
+            linAccFeatures[2] = accumulateMotionFeatures(zLinearAcc, "zLinearAcc");
             //onModified will be fired
 
             contextFeatures.setAccelerationFeatures(linAccFeatures);
@@ -242,8 +242,8 @@ public class WriteQueueAction extends Action implements Probe.DataListener {
             gyrosFeatures = new MotionFeatures[3];
 
             gyrosFeatures[0] = accumulateMotionFeatures(xGyros, "xGyros");
-            gyrosFeatures[1] = accumulateMotionFeatures(yGyros, "xGyros");
-            gyrosFeatures[2] = accumulateMotionFeatures(zGyros, "xGyros");
+            gyrosFeatures[1] = accumulateMotionFeatures(yGyros, "yGyros");
+            gyrosFeatures[2] = accumulateMotionFeatures(zGyros, "zGyros");
             //onModified will be fired
             contextFeatures.setGyroscopeFeatures(gyrosFeatures);
             UserTime time = new UserTime();//append time

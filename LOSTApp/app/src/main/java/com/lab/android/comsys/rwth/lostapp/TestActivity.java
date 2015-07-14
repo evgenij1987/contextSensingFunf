@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.lab.android.comsys.rwth.lostapp.context.ContextFeatures;
 import com.lab.android.comsys.rwth.lostapp.context.FunfContextClient;
-import com.lab.android.comsys.rwth.lostapp.context.MotionFeatures;
 import com.lab.android.comsys.rwth.lostapp.funf.QueuePipeline;
 
 import java.util.Date;

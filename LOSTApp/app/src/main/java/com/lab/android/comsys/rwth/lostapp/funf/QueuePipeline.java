@@ -27,27 +27,7 @@ import edu.mit.media.funf.storage.RemoteFileArchive;
  * The latter provides always at least motion features and user time.<code>getContextFeatures()</code>
  * might return null if no features were accumulated yet.Make sure to include the following permissions/features
  * in  AndroidManifest.xml
- *
- *
- *
- *            <uses-feature android:name="android.hardware.sensor.accelerometer"/>
- *            <uses-permission android:name="android.permission.BATTERY_STATS" />
- *            <uses-permission android:name="android.permission.WAKE_LOCK"/>
- *            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
- *
- *            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
- *            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
- *            <uses-permission android:name="android.permission.INTERNET"/>
- *            <uses-feature android:name="android.hardware.sensor.accelerometer"/>
- *            <uses-feature android:name="android.hardware.sensor.gyroscope"/>
- *            <uses-feature android:name="android.hardware.location"/>
- *
- *
- *
- *
- *
- *
- *
+
  * Created by evgenijavstein on 04/07/15.
  */
 

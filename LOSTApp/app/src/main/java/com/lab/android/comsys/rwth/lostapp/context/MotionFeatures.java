@@ -13,18 +13,27 @@ import org.json.JSONObject;
 //INTERNAL
 public class MotionFeatures extends AbstractJSONHandler {
 
-    public static final String AVERAGE = "average";
-    public static final String MAX = "max";
-    public static final String MIN = "min";
-    public static final String SMA = "sma";
+    private String AVERAGE;
+    private String MAX;
+    private String MIN;
+    private String SMA;
+    private String STDEV;
+
     private String relation;
     private double average;
     private double max;
     private double min;
     private double standardDeviation;
 
-    public MotionFeatures(String relation){
-        this.relation=relation;
+    public MotionFeatures(String relation) {
+        this.relation = relation;
+        this.AVERAGE = relation + "Average";
+        this.MAX = relation + "Max";
+        this.MIN = relation + "Min";
+        this.SMA = relation + "Sma";
+        this.STDEV = relation + "Stdev";
+
+
     }
 
     public void setSma(double sma) {
@@ -50,7 +59,6 @@ public class MotionFeatures extends AbstractJSONHandler {
     private double sma;
 
 
-
     public double getAverage() {
         return average;
     }
@@ -72,61 +80,65 @@ public class MotionFeatures extends AbstractJSONHandler {
     }
 
 
-
-
     protected JSONObject prepareHeader() throws JSONException {
 
-        JSONObject header=new JSONObject();
+        JSONObject header = new JSONObject();
 
 
-        JSONObject attributeAverage=new JSONObject();
+        JSONObject attributeAverage = new JSONObject();
         attributeAverage.put(NAME_PROPERTY, AVERAGE);
-        attributeAverage.put(TYPE_PROPERTY,NUMERIC_VALUE_ATTRIBUTE);
-        attributeAverage.put(CLASS_PROPERTY,IS_ATTRIBUTE_CLASS);
-        attributeAverage.put(WEIGHT_PROPERTY,WEIGHT_VALUE);
+        attributeAverage.put(TYPE_PROPERTY, NUMERIC_VALUE_ATTRIBUTE);
+        attributeAverage.put(CLASS_PROPERTY, IS_ATTRIBUTE_CLASS);
+        attributeAverage.put(WEIGHT_PROPERTY, WEIGHT_VALUE);
 
-        JSONObject attributeMax=new JSONObject();
+        JSONObject attributeMax = new JSONObject();
         attributeMax.put(NAME_PROPERTY, MAX);
-        attributeMax.put(TYPE_PROPERTY,NUMERIC_VALUE_ATTRIBUTE);
-        attributeMax.put(CLASS_PROPERTY,IS_ATTRIBUTE_CLASS);
-        attributeMax.put(WEIGHT_PROPERTY,WEIGHT_VALUE);
+        attributeMax.put(TYPE_PROPERTY, NUMERIC_VALUE_ATTRIBUTE);
+        attributeMax.put(CLASS_PROPERTY, IS_ATTRIBUTE_CLASS);
+        attributeMax.put(WEIGHT_PROPERTY, WEIGHT_VALUE);
 
-        JSONObject attributeMin=new JSONObject();
+        JSONObject attributeMin = new JSONObject();
         attributeMin.put(NAME_PROPERTY, MIN);
-        attributeMin.put(TYPE_PROPERTY,NUMERIC_VALUE_ATTRIBUTE);
-        attributeMin.put(CLASS_PROPERTY,IS_ATTRIBUTE_CLASS);
-        attributeMin.put(WEIGHT_PROPERTY,WEIGHT_VALUE);
+        attributeMin.put(TYPE_PROPERTY, NUMERIC_VALUE_ATTRIBUTE);
+        attributeMin.put(CLASS_PROPERTY, IS_ATTRIBUTE_CLASS);
+        attributeMin.put(WEIGHT_PROPERTY, WEIGHT_VALUE);
 
-        JSONObject attributeSma=new JSONObject();
+        JSONObject attributeSma = new JSONObject();
         attributeSma.put(NAME_PROPERTY, SMA);
         attributeSma.put(TYPE_PROPERTY, NUMERIC_VALUE_ATTRIBUTE);
-        attributeSma.put(CLASS_PROPERTY,IS_ATTRIBUTE_CLASS);
-        attributeSma.put(WEIGHT_PROPERTY,WEIGHT_VALUE);
+        attributeSma.put(CLASS_PROPERTY, IS_ATTRIBUTE_CLASS);
+        attributeSma.put(WEIGHT_PROPERTY, WEIGHT_VALUE);
 
-        JSONArray attributes=new JSONArray();
+        JSONObject attributeStdev = new JSONObject();
+        attributeStdev.put(NAME_PROPERTY, STDEV);
+        attributeStdev.put(TYPE_PROPERTY, NUMERIC_VALUE_ATTRIBUTE);
+        attributeStdev.put(CLASS_PROPERTY, IS_ATTRIBUTE_CLASS);
+        attributeStdev.put(WEIGHT_PROPERTY, WEIGHT_VALUE);
+
+        JSONArray attributes = new JSONArray();
         attributes.put(attributeAverage);
         attributes.put(attributeMax);
         attributes.put(attributeMin);
         attributes.put(attributeSma);
 
-        header.put(RELATION_PROPERTY,relation );
-        header.put(ATTRIBUTES_PROPERTY,attributes);
+        header.put(RELATION_PROPERTY, relation);
+        header.put(ATTRIBUTES_PROPERTY, attributes);
         return header;
     }
 
     protected JSONArray prepareData() throws JSONException {
-        JSONArray data=new JSONArray();
-        JSONObject obj=new JSONObject();
-        obj.put(SPARSE_ATTRIBUTE_NAME,false);
-        obj.put(WEIGHT_PROPERTY,WEIGHT_VALUE);
+        JSONArray data = new JSONArray();
+        JSONObject obj = new JSONObject();
+        obj.put(SPARSE_ATTRIBUTE_NAME, false);
+        obj.put(WEIGHT_PROPERTY, WEIGHT_VALUE);
 
-        JSONArray values=new JSONArray();
+        JSONArray values = new JSONArray();
         values.put(average);
         values.put(max);
         values.put(min);
         values.put(sma);
 
-        obj.put(VALUES_PROPERTY,values );
+        obj.put(VALUES_PROPERTY, values);
         data.put(obj);
         return data;
     }

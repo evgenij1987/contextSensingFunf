@@ -24,7 +24,7 @@ public class TestActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
 
         contextDisplay=(TextView)findViewById(R.id.contextDisplay);
 
@@ -37,8 +37,8 @@ public class TestActivity extends ActionBarActivity {
             public void onChanged(ContextFeatures contextFeatures) {
 
                 Date date = new Date();
-                Gson gson=new Gson();
-                String contextChange="Context changed: " + date.toString() + " " + gson.toJson(contextFeatures);
+                String context=contextFeatures.getAsJSON().toString();
+                String contextChange="Context changed: " + date.toString() + " " +context;
                 Log.d(TAG,contextChange );
 
                 contextDisplay.setText(contextChange);

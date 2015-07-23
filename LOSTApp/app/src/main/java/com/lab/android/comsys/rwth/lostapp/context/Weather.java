@@ -165,13 +165,14 @@ public class Weather  extends AbstractJSONHandler{
         obj.put(WEIGHT_PROPERTY,WEIGHT_VALUE);
 
         JSONArray values=new JSONArray();
-        values.put(main);
-        values.put(temp);
-        values.put(humidity);
-        values.put(clouds);
-        values.put(rainVolume);
-        values.put(snowVolume);
-        values.put(visibility);
+
+        values.put(main==null?"?":main);
+        values.put(temp==0.0d?"?":temp);
+        values.put(humidity==0.0d?"?":humidity);
+        values.put(clouds==0?"?":clouds);
+        values.put(rainVolume==0.0d?"?":rainVolume);
+        values.put(snowVolume==0.0d?"?":snowVolume);
+        values.put(visibility==0?"?":visibility);
 
 
         obj.put(VALUES_PROPERTY,values );

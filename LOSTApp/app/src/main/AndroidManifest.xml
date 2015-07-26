@@ -23,6 +23,8 @@
     <!-- Weather -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
+    <!--MAC adress-->
+    <uses-permission android:name="ANDROID.PERMISSION.ACCESS_WIFI_STATE"/>
 
 
 

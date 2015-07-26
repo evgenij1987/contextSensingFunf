@@ -27,7 +27,7 @@ public class LearnPostRequest {
     public static final String USER = "user";
     public static final String CONTEXT = "context";
     public static final String USERID = "userid";
-    public String BASE_URL = "http://192.168.0.11:3000";
+    public static String BASE_URL = "http://192.168.0.11:3000";
 
     private Context context;
     private OnResponseListener onResponseListener;
